@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coming Soon</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      border-bottom: 1px solid #333;
+    }
+    .header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+    .content {
+      padding: 20px;
+    }
+    .countdown {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Coming Soon</h1>
+    </div>
+    <div class="content">
+      <p>We're working hard to bring you our new website. Please come back soon!</p>
+      <div class="countdown">
+        <span id="days">00</span>
+        <span id="hours">00</span>
+        <span id="minutes">00</span>
+        <span id="seconds">00</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Set the countdown timer
+    var countDownDate = new Date("May 16, 2024 12:00:00").getTime();
+    var x = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById("days").innerHTML = days + " days";
+      document.getElementById("hours").innerHTML = hours + " hours";
+      document.getElementById("minutes").innerHTML = minutes + " minutes";
+      document.getElementById("seconds").innerHTML = seconds + " seconds";
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "Coming Soon!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
